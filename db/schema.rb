@@ -10,7 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_08_035128) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_08_054419) do
+  create_table "challenge_runs", force: :cascade do |t|
+    t.integer "challenge_type_id"
+    t.string "user_progress"
+    t.integer "user_id"
+    t.date "end_date"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "challenge_types", force: :cascade do |t|
+    t.integer "duration"
+    t.string "name"
+    t.integer "profile_id"
+    t.string "description"
+    t.integer "challenge_runs_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "description"
+    t.integer "user_id"
+    t.string "profile_name"
+    t.integer "users_count"
+    t.integer "challenge_types_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "income"
+    t.string "expenses"
+    t.string "score"
+    t.string "risk_tolerance"
+    t.string "savings_goal"
+    t.date "goal_target_date"
+    t.string "savings_recommendation"
+    t.string "investment_recommendation"
+    t.integer "users_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
