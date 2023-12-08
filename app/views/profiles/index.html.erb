@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all profiles
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new profile
+    </h2>
+
+    <form action="/insert_profile" method="post">
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="profile_name_box">
+          Profile name
+        </label>
+
+        <input type="text" id="profile_name_box" name="query_profile_name">
+      </div>
+
+      <div>
+        <label for="users_count_box">
+          Users count
+        </label>
+
+        <input type="text" id="users_count_box" name="query_users_count">
+      </div>
+
+      <div>
+        <label for="challenge_types_count_box">
+          Challenge types count
+        </label>
+
+        <input type="text" id="challenge_types_count_box" name="query_challenge_types_count">
+      </div>
+
+      <button>
+        Create profile
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Profile name
+        </th>
+
+        <th>
+          Users count
+        </th>
+
+        <th>
+          Challenge types count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_profiles.each do |a_profile| %>
+      <tr>
+        <td>
+          <%= a_profile.id %>
+        </td>
+
+        <td>
+          <%= a_profile.description %>
+        </td>
+
+        <td>
+          <%= a_profile.user_id %>
+        </td>
+
+        <td>
+          <%= a_profile.profile_name %>
+        </td>
+
+        <td>
+          <%= a_profile.users_count %>
+        </td>
+
+        <td>
+          <%= a_profile.challenge_types_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_profile.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_profile.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/profiles/<%= a_profile.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

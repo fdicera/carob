@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Challenge type #<%= @the_challenge_type.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/challenge_types">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_challenge_type/<%= @the_challenge_type.id %>">
+          Delete challenge type
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Duration
+      </dt>
+      <dd>
+        <%= @the_challenge_type.duration %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_challenge_type.name %>
+      </dd>
+
+      <dt>
+        Profile
+      </dt>
+      <dd>
+        <%= @the_challenge_type.profile_id %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_challenge_type.description %>
+      </dd>
+
+      <dt>
+        Challenge runs count
+      </dt>
+      <dd>
+        <%= @the_challenge_type.challenge_runs_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_challenge_type.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_challenge_type.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit challenge type
+    </h2>
+
+    <form action="/modify_challenge_type/<%= @the_challenge_type.id %>"  method="post" >
+      <div>
+        <label for="duration_box">
+          Duration
+        </label>
+
+        <input type="text" id="duration_box" name="query_duration" value="<%= @the_challenge_type.duration %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_challenge_type.name %>">
+      </div>
+
+      <div>
+        <label for="profile_id_box">
+          Profile
+        </label>
+
+        <input type="text" id="profile_id_box" name="query_profile_id" value="<%= @the_challenge_type.profile_id %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_challenge_type.description %>">
+      </div>
+
+      <div>
+        <label for="challenge_runs_count_box">
+          Challenge runs count
+        </label>
+
+        <input type="text" id="challenge_runs_count_box" name="query_challenge_runs_count" value="<%= @the_challenge_type.challenge_runs_count %>">
+      </div>
+
+      <button>
+        Update challenge type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

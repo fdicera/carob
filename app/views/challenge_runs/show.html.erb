@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Challenge run #<%= @the_challenge_run.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/challenge_runs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_challenge_run/<%= @the_challenge_run.id %>">
+          Delete challenge run
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Challenge type
+      </dt>
+      <dd>
+        <%= @the_challenge_run.challenge_type_id %>
+      </dd>
+
+      <dt>
+        User progress
+      </dt>
+      <dd>
+        <%= @the_challenge_run.user_progress %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_challenge_run.user_id %>
+      </dd>
+
+      <dt>
+        End date
+      </dt>
+      <dd>
+        <%= @the_challenge_run.end_date %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_challenge_run.status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_challenge_run.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_challenge_run.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit challenge run
+    </h2>
+
+    <form action="/modify_challenge_run/<%= @the_challenge_run.id %>"  method="post" >
+      <div>
+        <label for="challenge_type_id_box">
+          Challenge type
+        </label>
+
+        <input type="text" id="challenge_type_id_box" name="query_challenge_type_id" value="<%= @the_challenge_run.challenge_type_id %>">
+      </div>
+
+      <div>
+        <label for="user_progress_box">
+          User progress
+        </label>
+
+        <input type="text" id="user_progress_box" name="query_user_progress" value="<%= @the_challenge_run.user_progress %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_challenge_run.user_id %>">
+      </div>
+
+      <div>
+        <label for="end_date_box">
+          End date
+        </label>
+
+        <input type="date" id="end_date_box" name="query_end_date" value="<%= @the_challenge_run.end_date %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_challenge_run.status %>">
+      </div>
+
+      <button>
+        Update challenge run
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

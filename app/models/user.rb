@@ -25,9 +25,9 @@
 #
 class User < ApplicationRecord
   #direct associations
-  #has_many  :challenge_runs, class_name: "ChallengeRun", foreign_key: "user_id"
- #belongs_to :profile, required: true, class_name: "Profile", foreign_key: "profile_id", counter_cache: true
- # belongs_to :survey, required: true, class_name: "Survey", foreign_key: "survey_id", counter_cache: true
+  has_many  :challenge_runs, class_name: "ChallengeRun", foreign_key: "user_id"
+  belongs_to :profile, required: true, class_name: "Profile", foreign_key: "profile_id", counter_cache: true
+  belongs_to :survey, required: true, class_name: "Survey", foreign_key: "survey_id", counter_cache: true
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

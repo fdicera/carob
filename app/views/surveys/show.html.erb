@@ -1,0 +1,191 @@
+<div>
+  <div>
+    <h1>
+      Survey #<%= @the_survey.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/surveys">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_survey/<%= @the_survey.id %>">
+          Delete survey
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Income
+      </dt>
+      <dd>
+        <%= @the_survey.income %>
+      </dd>
+
+      <dt>
+        Expenses
+      </dt>
+      <dd>
+        <%= @the_survey.expenses %>
+      </dd>
+
+      <dt>
+        Score
+      </dt>
+      <dd>
+        <%= @the_survey.score %>
+      </dd>
+
+      <dt>
+        Risk tolerance
+      </dt>
+      <dd>
+        <%= @the_survey.risk_tolerance %>
+      </dd>
+
+      <dt>
+        Savings goal
+      </dt>
+      <dd>
+        <%= @the_survey.savings_goal %>
+      </dd>
+
+      <dt>
+        Goal target date
+      </dt>
+      <dd>
+        <%= @the_survey.goal_target_date %>
+      </dd>
+
+      <dt>
+        Savings recommendation
+      </dt>
+      <dd>
+        <%= @the_survey.savings_recommendation %>
+      </dd>
+
+      <dt>
+        Investment recommendation
+      </dt>
+      <dd>
+        <%= @the_survey.investment_recommendation %>
+      </dd>
+
+      <dt>
+        Users count
+      </dt>
+      <dd>
+        <%= @the_survey.users_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_survey.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_survey.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit survey
+    </h2>
+
+    <form action="/modify_survey/<%= @the_survey.id %>"  method="post" >
+      <div>
+        <label for="income_box">
+          Income
+        </label>
+
+        <input type="text" id="income_box" name="query_income" value="<%= @the_survey.income %>">
+      </div>
+
+      <div>
+        <label for="expenses_box">
+          Expenses
+        </label>
+
+        <input type="text" id="expenses_box" name="query_expenses" value="<%= @the_survey.expenses %>">
+      </div>
+
+      <div>
+        <label for="score_box">
+          Score
+        </label>
+
+        <input type="text" id="score_box" name="query_score" value="<%= @the_survey.score %>">
+      </div>
+
+      <div>
+        <label for="risk_tolerance_box">
+          Risk tolerance
+        </label>
+
+        <input type="text" id="risk_tolerance_box" name="query_risk_tolerance" value="<%= @the_survey.risk_tolerance %>">
+      </div>
+
+      <div>
+        <label for="savings_goal_box">
+          Savings goal
+        </label>
+
+        <input type="text" id="savings_goal_box" name="query_savings_goal" value="<%= @the_survey.savings_goal %>">
+      </div>
+
+      <div>
+        <label for="goal_target_date_box">
+          Goal target date
+        </label>
+
+        <input type="date" id="goal_target_date_box" name="query_goal_target_date" value="<%= @the_survey.goal_target_date %>">
+      </div>
+
+      <div>
+        <label for="savings_recommendation_box">
+          Savings recommendation
+        </label>
+
+        <input type="text" id="savings_recommendation_box" name="query_savings_recommendation" value="<%= @the_survey.savings_recommendation %>">
+      </div>
+
+      <div>
+        <label for="investment_recommendation_box">
+          Investment recommendation
+        </label>
+
+        <input type="text" id="investment_recommendation_box" name="query_investment_recommendation" value="<%= @the_survey.investment_recommendation %>">
+      </div>
+
+      <div>
+        <label for="users_count_box">
+          Users count
+        </label>
+
+        <input type="text" id="users_count_box" name="query_users_count" value="<%= @the_survey.users_count %>">
+      </div>
+
+      <button>
+        Update survey
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

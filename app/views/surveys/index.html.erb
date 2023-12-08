@@ -1,0 +1,214 @@
+<div>
+  <div>
+    <h1>
+      List of all surveys
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new survey
+    </h2>
+
+    <form action="/insert_survey" method="post">
+      <div>
+        <label for="income_box">
+          Income
+        </label>
+
+        <input type="text" id="income_box" name="query_income">
+      </div>
+
+      <div>
+        <label for="expenses_box">
+          Expenses
+        </label>
+
+        <input type="text" id="expenses_box" name="query_expenses">
+      </div>
+
+      <div>
+        <label for="score_box">
+          Score
+        </label>
+
+        <input type="text" id="score_box" name="query_score">
+      </div>
+
+      <div>
+        <label for="risk_tolerance_box">
+          Risk tolerance
+        </label>
+
+        <input type="text" id="risk_tolerance_box" name="query_risk_tolerance">
+      </div>
+
+      <div>
+        <label for="savings_goal_box">
+          Savings goal
+        </label>
+
+        <input type="text" id="savings_goal_box" name="query_savings_goal">
+      </div>
+
+      <div>
+        <label for="goal_target_date_box">
+          Goal target date
+        </label>
+
+        <input type="date" id="goal_target_date_box" name="query_goal_target_date">
+      </div>
+
+      <div>
+        <label for="savings_recommendation_box">
+          Savings recommendation
+        </label>
+
+        <input type="text" id="savings_recommendation_box" name="query_savings_recommendation">
+      </div>
+
+      <div>
+        <label for="investment_recommendation_box">
+          Investment recommendation
+        </label>
+
+        <input type="text" id="investment_recommendation_box" name="query_investment_recommendation">
+      </div>
+
+      <div>
+        <label for="users_count_box">
+          Users count
+        </label>
+
+        <input type="text" id="users_count_box" name="query_users_count">
+      </div>
+
+      <button>
+        Create survey
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Income
+        </th>
+
+        <th>
+          Expenses
+        </th>
+
+        <th>
+          Score
+        </th>
+
+        <th>
+          Risk tolerance
+        </th>
+
+        <th>
+          Savings goal
+        </th>
+
+        <th>
+          Goal target date
+        </th>
+
+        <th>
+          Savings recommendation
+        </th>
+
+        <th>
+          Investment recommendation
+        </th>
+
+        <th>
+          Users count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_surveys.each do |a_survey| %>
+      <tr>
+        <td>
+          <%= a_survey.id %>
+        </td>
+
+        <td>
+          <%= a_survey.income %>
+        </td>
+
+        <td>
+          <%= a_survey.expenses %>
+        </td>
+
+        <td>
+          <%= a_survey.score %>
+        </td>
+
+        <td>
+          <%= a_survey.risk_tolerance %>
+        </td>
+
+        <td>
+          <%= a_survey.savings_goal %>
+        </td>
+
+        <td>
+          <%= a_survey.goal_target_date %>
+        </td>
+
+        <td>
+          <%= a_survey.savings_recommendation %>
+        </td>
+
+        <td>
+          <%= a_survey.investment_recommendation %>
+        </td>
+
+        <td>
+          <%= a_survey.users_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_survey.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_survey.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/surveys/<%= a_survey.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

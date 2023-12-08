@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Profile #<%= @the_profile.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/profiles">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_profile/<%= @the_profile.id %>">
+          Delete profile
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_profile.description %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_profile.user_id %>
+      </dd>
+
+      <dt>
+        Profile name
+      </dt>
+      <dd>
+        <%= @the_profile.profile_name %>
+      </dd>
+
+      <dt>
+        Users count
+      </dt>
+      <dd>
+        <%= @the_profile.users_count %>
+      </dd>
+
+      <dt>
+        Challenge types count
+      </dt>
+      <dd>
+        <%= @the_profile.challenge_types_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_profile.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_profile.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit profile
+    </h2>
+
+    <form action="/modify_profile/<%= @the_profile.id %>"  method="post" >
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_profile.description %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_profile.user_id %>">
+      </div>
+
+      <div>
+        <label for="profile_name_box">
+          Profile name
+        </label>
+
+        <input type="text" id="profile_name_box" name="query_profile_name" value="<%= @the_profile.profile_name %>">
+      </div>
+
+      <div>
+        <label for="users_count_box">
+          Users count
+        </label>
+
+        <input type="text" id="users_count_box" name="query_users_count" value="<%= @the_profile.users_count %>">
+      </div>
+
+      <div>
+        <label for="challenge_types_count_box">
+          Challenge types count
+        </label>
+
+        <input type="text" id="challenge_types_count_box" name="query_challenge_types_count" value="<%= @the_profile.challenge_types_count %>">
+      </div>
+
+      <button>
+        Update profile
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
