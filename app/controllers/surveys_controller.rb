@@ -1,8 +1,8 @@
 class SurveysController < ApplicationController
   def index
-    matching_surveys = Survey.all
+    matching_surveys = Survey.where({ :user_id => current_user.id })
 
-    @list_of_surveys = matching_surveys.order({ :created_at => :desc })
+    @list_of_surveys = matching_surveys.order({ :created_at => :desc})
 
     render({ :template => "surveys/index" })
   end
@@ -23,6 +23,7 @@ class SurveysController < ApplicationController
     the_survey.expenses = params.fetch("query_expenses")
     #the_survey.score = params.fetch("query_score")
     the_survey.risk_tolerance = params.fetch("query_risk_tolerance")
+    the_survey.user_id = current_user.id
    # the_survey.savings_goal = params.fetch("query_savings_goal")
     #the_survey.goal_target_date = params.fetch("query_goal_target_date")
     #the_survey.savings_recommendation = params.fetch("query_savings_recommendation")
@@ -45,8 +46,8 @@ class SurveysController < ApplicationController
     expenses = the_survey.expenses.to_i
     risk_tolerance = the_survey.risk_tolerance.to_i
   
-    score = ((income - expenses)/ income) * risk_tolerance*100
-  
+    score = ((income - expenses)/ income) * risk_tolerance * 10
+
     challenge_description = determine_challenge(score)
 
    # Create ChallengeType and log the result
@@ -63,9 +64,9 @@ class SurveysController < ApplicationController
 end
   
   def determine_challenge(score)
-    if score < 100
+    if score < 2
       "Invest 10% of net income in fixed income."
-    elsif score >= 100 && score < 200
+    elsif score >= 2 && score < 6
       "Invest 5% of net income in equities, 5% in fixed income."
     else
       "Invest 10% of net income in equities."
@@ -78,17 +79,11 @@ end
 
     the_survey.income = params.fetch("query_income")
     the_survey.expenses = params.fetch("query_expenses")
-    the_survey.score = params.fetch("query_score")
     the_survey.risk_tolerance = params.fetch("query_risk_tolerance")
-    the_survey.savings_goal = params.fetch("query_savings_goal")
-    the_survey.goal_target_date = params.fetch("query_goal_target_date")
-    the_survey.savings_recommendation = params.fetch("query_savings_recommendation")
-    the_survey.investment_recommendation = params.fetch("query_investment_recommendation")
-    the_survey.users_count = params.fetch("query_users_count")
 
     if the_survey.valid?
       the_survey.save
-      redirect_to("/surveys/#{the_survey.id}", { :notice => "Survey updated successfully."} )
+      redirect_to("/surveys", { :notice => "Survey updated successfully."} )
     else
       redirect_to("/surveys/#{the_survey.id}", { :alert => the_survey.errors.full_messages.to_sentence })
     end

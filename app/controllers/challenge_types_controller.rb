@@ -1,11 +1,11 @@
 class ChallengeTypesController < ApplicationController
+
   def index
-    matching_challenge_types = ChallengeType.all
-
-    @list_of_challenge_types = matching_challenge_types.order({ :created_at => :desc })
-
+    matching_challenge_types = ChallengeType.all.order({ :created_at => :desc })
+    @list_of_challenge_types = matching_challenge_types
     render({ :template => "challenge_types/index" })
   end
+
 
  # def show
  #   the_id = params.fetch("path_id")
@@ -37,7 +37,8 @@ class ChallengeTypesController < ApplicationController
    # the_challenge_type.name = params.fetch("query_name")
    # the_challenge_type.profile_id = params.fetch("query_profile_id")
     the_challenge_type.description = params.fetch("query_description")
-    he_challenge_type.survey_id = params.fetch("query_survey_id")
+    the_challenge_type.survey_id = params.fetch("query_survey_id")
+   # the_challenge_type.user_id = params.fetch("query_user_id")
    # the_challenge_type.challenge_runs_count = params.fetch("query_challenge_runs_count")
 
     if the_challenge_type.valid?

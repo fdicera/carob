@@ -1,13 +1,18 @@
 <h1>Carob</h1>
 
 <% if current_user.present? %>
+<div>
   <a href="/users/edit">Edit profile</a>
+</div>
 
+<div>
   <a href="/users/sign_out">Sign out</a>
-
+</div>
    <a href="/surveys/<% current_user.id %>">View and add surveys</a>
 
-   <a href="/challenge_types">View my current challenges</a>
+<div>
+   <a href="/challenge_types">View all current challenges</a>
+</div>
 <% else %>
   <a href="/users/sign_up">Sign up</a>
   

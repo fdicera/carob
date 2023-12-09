@@ -18,26 +18,26 @@
     <form action="/insert_survey" method="post">
       <div>
         <label for="income_box">
-          Income
+          Annual Income ($)
         </label>
 
-        <input type="text" id="income_box" name="query_income">
+        <input type="text" id="income_box" name="query_income" placeholder="e.g. 100">
       </div>
 
       <div>
         <label for="expenses_box">
-          Expenses
+          Annual Expenses ($)
         </label>
 
-        <input type="text" id="expenses_box" name="query_expenses">
+        <input type="text" id="expenses_box" name="query_expenses" placeholder="e.g. 100">
       </div>
 
       <div>
         <label for="risk_tolerance_box">
-          Risk tolerance
+          Risk tolerance (1 = low, 2 = medium, 3 = high)
         </label>
 
-        <input type="text" id="risk_tolerance_box" name="query_risk_tolerance">
+        <input type="text" id="risk_tolerance_box" name="query_risk_tolerance" placeholder="e.g. 2">
       </div>
       <button>
         Create survey
@@ -96,10 +96,6 @@
         <td>
           <%= a_survey.risk_tolerance %>
         </td>
- <!-- Add a column with a link to the associated challenge_run -->
-        <td>
-         <a href="/challenge_types/<%= a_survey.id %>">View Challenge</a>
-        </td>
         <td>
           <%= time_ago_in_words(a_survey.created_at) %> ago
         </td>
@@ -107,9 +103,14 @@
           <%= time_ago_in_words(a_survey.updated_at) %> ago
         </td>
 
+<!-- Add a column with a link to the associated challenge_run -->
+        <td>
+         <a href="/challenge_types/<%= a_survey.id %>">View Challenge</a>
+        </td>
+        
         <td>
           <a href="/surveys/<%= a_survey.id %>">
-            Show details
+            Edit
           </a>
         </td>
       </tr>

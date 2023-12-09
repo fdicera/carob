@@ -2,83 +2,23 @@
 <div>
   <div>
     <h1>
-      Survey #<%= @the_survey.id %> details
+      Edit Survey #<%= @the_survey.id %> 
     </h1>
-
-    <div>
-      <div>
-        <a href="/surveys">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_survey/<%= @the_survey.id %>">
-          Delete survey
-        </a>
-      </div>
-    </div>
-
-    <dl>
-      <dt>
-        Income
-      </dt>
-      <dd>
-        <%= @the_survey.income %>
-      </dd>
-
-      <dt>
-        Expenses
-      </dt>
-      <dd>
-        <%= @the_survey.expenses %>
-      </dd>
-
-      <dt>
-        Risk tolerance
-      </dt>
-      <dd>
-        <%= @the_survey.risk_tolerance %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_survey.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_survey.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
-<hr>
-
 
 <div>
   <div>
-    <h2>
-      Edit survey
-    </h2>
 
     <form action="/modify_survey/<%= @the_survey.id %>"  method="post" >
       <div>
         <label for="income_box">
-          Income
-        </label>
+          Annual Income ($)
 
         <input type="text" id="income_box" name="query_income" value="<%= @the_survey.income %>">
       </div>
 
       <div>
         <label for="expenses_box">
-          Expenses
+          Annual Expenses ($)
         </label>
 
         <input type="text" id="expenses_box" name="query_expenses" value="<%= @the_survey.expenses %>">
@@ -99,4 +39,19 @@
   </div>
 </div>
 
+
+
 <hr>
+<div>
+      <div>
+        <a href="/surveys">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_survey/<%= @the_survey.id %>">
+          Delete survey
+        </a>
+      </div>
+    </div>

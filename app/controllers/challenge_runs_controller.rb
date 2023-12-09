@@ -21,7 +21,7 @@ class ChallengeRunsController < ApplicationController
     the_challenge_run = ChallengeRun.new
     the_challenge_run.challenge_type_id = params.fetch("query_challenge_type_id")
     the_challenge_run.user_progress = params.fetch("query_user_progress")
-    the_challenge_run.user_id = params.fetch("query_user_id")
+    #the_challenge_run.user_id = params.fetch("query_user_id")
     the_challenge_run.end_date = params.fetch("query_end_date")
     the_challenge_run.status = params.fetch("query_status")
 

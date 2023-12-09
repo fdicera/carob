@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_09_055926) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_09_143526) do
   create_table "challenge_runs", force: :cascade do |t|
     t.integer "challenge_type_id"
     t.string "user_progress"
@@ -30,6 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_09_055926) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "survey_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_challenge_types_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -54,6 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_09_055926) do
     t.integer "users_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

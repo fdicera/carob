@@ -14,6 +14,11 @@
 #  users_count               :integer
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
+#  user_id                   :integer
+#
+# Indexes
+#
+#  index_surveys_on_user_id  (user_id)
 #
 class Survey < ApplicationRecord
   has_many  :users, class_name: "User", foreign_key: "survey_id"
