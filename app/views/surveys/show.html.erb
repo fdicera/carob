@@ -1,3 +1,4 @@
+<a href="/">Home</a>
 <div>
   <div>
     <h1>
@@ -34,45 +35,10 @@
       </dd>
 
       <dt>
-        Score
-      </dt>
-      <dd>
-        <%= @the_survey.score %>
-      </dd>
-
-      <dt>
         Risk tolerance
       </dt>
       <dd>
         <%= @the_survey.risk_tolerance %>
-      </dd>
-
-      <dt>
-        Savings goal
-      </dt>
-      <dd>
-        <%= @the_survey.savings_goal %>
-      </dd>
-
-      <dt>
-        Goal target date
-      </dt>
-      <dd>
-        <%= @the_survey.goal_target_date %>
-      </dd>
-
-      <dt>
-        Savings recommendation
-      </dt>
-      <dd>
-        <%= @the_survey.savings_recommendation %>
-      </dd>
-
-      <dt>
-        Investment recommendation
-      </dt>
-      <dd>
-        <%= @the_survey.investment_recommendation %>
       </dd>
 
       <dt>
@@ -119,59 +85,11 @@
       </div>
 
       <div>
-        <label for="score_box">
-          Score
-        </label>
-
-        <input type="text" id="score_box" name="query_score" value="<%= @the_survey.score %>">
-      </div>
-
-      <div>
         <label for="risk_tolerance_box">
           Risk tolerance
         </label>
 
         <input type="text" id="risk_tolerance_box" name="query_risk_tolerance" value="<%= @the_survey.risk_tolerance %>">
-      </div>
-
-      <div>
-        <label for="savings_goal_box">
-          Savings goal
-        </label>
-
-        <input type="text" id="savings_goal_box" name="query_savings_goal" value="<%= @the_survey.savings_goal %>">
-      </div>
-
-      <div>
-        <label for="goal_target_date_box">
-          Goal target date
-        </label>
-
-        <input type="date" id="goal_target_date_box" name="query_goal_target_date" value="<%= @the_survey.goal_target_date %>">
-      </div>
-
-      <div>
-        <label for="savings_recommendation_box">
-          Savings recommendation
-        </label>
-
-        <input type="text" id="savings_recommendation_box" name="query_savings_recommendation" value="<%= @the_survey.savings_recommendation %>">
-      </div>
-
-      <div>
-        <label for="investment_recommendation_box">
-          Investment recommendation
-        </label>
-
-        <input type="text" id="investment_recommendation_box" name="query_investment_recommendation" value="<%= @the_survey.investment_recommendation %>">
-      </div>
-
-      <div>
-        <label for="users_count_box">
-          Users count
-        </label>
-
-        <input type="text" id="users_count_box" name="query_users_count" value="<%= @the_survey.users_count %>">
       </div>
 
       <button>

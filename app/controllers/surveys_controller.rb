@@ -21,19 +21,44 @@ class SurveysController < ApplicationController
     the_survey = Survey.new
     the_survey.income = params.fetch("query_income")
     the_survey.expenses = params.fetch("query_expenses")
-    the_survey.score = params.fetch("query_score")
+    #the_survey.score = params.fetch("query_score")
     the_survey.risk_tolerance = params.fetch("query_risk_tolerance")
-    the_survey.savings_goal = params.fetch("query_savings_goal")
-    the_survey.goal_target_date = params.fetch("query_goal_target_date")
-    the_survey.savings_recommendation = params.fetch("query_savings_recommendation")
-    the_survey.investment_recommendation = params.fetch("query_investment_recommendation")
-    the_survey.users_count = params.fetch("query_users_count")
+   # the_survey.savings_goal = params.fetch("query_savings_goal")
+    #the_survey.goal_target_date = params.fetch("query_goal_target_date")
+    #the_survey.savings_recommendation = params.fetch("query_savings_recommendation")
+   # the_survey.investment_recommendation = params.fetch("query_investment_recommendation")
+   # the_survey.users_count = params.fetch("query_users_count")
 
     if the_survey.valid?
       the_survey.save
+      calculate_score_and_create_challenge(the_survey)
       redirect_to("/surveys", { :notice => "Survey created successfully." })
+      # Redirect to the challenge_runs page
+    #redirect_to("/s")
     else
       redirect_to("/surveys", { :alert => the_survey.errors.full_messages.to_sentence })
+    end
+  end
+
+  def calculate_score_and_create_challenge(the_survey)
+    income = the_survey.income.to_i
+    expenses = the_survey.expenses.to_i
+    risk_tolerance = the_survey.risk_tolerance.to_i
+  
+    score = ((income - expenses)/ income) * risk_tolerance
+  
+    challenge_description = determine_challenge(score)
+  
+    ChallengeType.create({ :survey_id => the_survey.id, :description => challenge_description })
+  end
+  
+  def determine_challenge(score)
+    if score < 100
+      "Invest 10% in fixed income."
+    elsif score >= 100 && score < 200
+      "Invest 5% in equities, 5% in fixed income."
+    else
+      "Invest 10% in equities, 5% in fixed income."
     end
   end
 

@@ -1,3 +1,4 @@
+<a href="/">Home</a>
 <div>
   <div>
     <h1>
@@ -32,61 +33,12 @@
       </div>
 
       <div>
-        <label for="score_box">
-          Score
-        </label>
-
-        <input type="text" id="score_box" name="query_score">
-      </div>
-
-      <div>
         <label for="risk_tolerance_box">
           Risk tolerance
         </label>
 
         <input type="text" id="risk_tolerance_box" name="query_risk_tolerance">
       </div>
-
-      <div>
-        <label for="savings_goal_box">
-          Savings goal
-        </label>
-
-        <input type="text" id="savings_goal_box" name="query_savings_goal">
-      </div>
-
-      <div>
-        <label for="goal_target_date_box">
-          Goal target date
-        </label>
-
-        <input type="date" id="goal_target_date_box" name="query_goal_target_date">
-      </div>
-
-      <div>
-        <label for="savings_recommendation_box">
-          Savings recommendation
-        </label>
-
-        <input type="text" id="savings_recommendation_box" name="query_savings_recommendation">
-      </div>
-
-      <div>
-        <label for="investment_recommendation_box">
-          Investment recommendation
-        </label>
-
-        <input type="text" id="investment_recommendation_box" name="query_investment_recommendation">
-      </div>
-
-      <div>
-        <label for="users_count_box">
-          Users count
-        </label>
-
-        <input type="text" id="users_count_box" name="query_users_count">
-      </div>
-
       <button>
         Create survey
       </button>
@@ -112,31 +64,7 @@
         </th>
 
         <th>
-          Score
-        </th>
-
-        <th>
           Risk tolerance
-        </th>
-
-        <th>
-          Savings goal
-        </th>
-
-        <th>
-          Goal target date
-        </th>
-
-        <th>
-          Savings recommendation
-        </th>
-
-        <th>
-          Investment recommendation
-        </th>
-
-        <th>
-          Users count
         </th>
 
         <th>
@@ -166,33 +94,12 @@
         </td>
 
         <td>
-          <%= a_survey.score %>
-        </td>
-
-        <td>
           <%= a_survey.risk_tolerance %>
         </td>
-
+ <!-- Add a column with a link to the associated challenge_run -->
         <td>
-          <%= a_survey.savings_goal %>
+         <a href="/challenge_runs/<%= a_survey.id %>">View Challenge</a>
         </td>
-
-        <td>
-          <%= a_survey.goal_target_date %>
-        </td>
-
-        <td>
-          <%= a_survey.savings_recommendation %>
-        </td>
-
-        <td>
-          <%= a_survey.investment_recommendation %>
-        </td>
-
-        <td>
-          <%= a_survey.users_count %>
-        </td>
-
         <td>
           <%= time_ago_in_words(a_survey.created_at) %> ago
         </td>

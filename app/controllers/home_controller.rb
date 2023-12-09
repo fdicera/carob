@@ -8,6 +8,6 @@ class HomeController < ApplicationController
     #end
   #end
   
-  render({ :template => "home/show" })
+  render({ :template => "home_html/show" })
 
 end

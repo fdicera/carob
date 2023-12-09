@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # Routes for the Challenge run resource:
 
   # CREATE
-  post("/insert_challenge_run", { :controller => "challenge_runs", :action => "create" })
+  #post("/insert_challenge_run", { :controller => "challenge_runs", :action => "create" })
           
   # READ
   get("/challenge_runs", { :controller => "challenge_runs", :action => "index" })
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   # UPDATE
   
-  post("/modify_challenge_run/:path_id", { :controller => "challenge_runs", :action => "update" })
+  #post("/modify_challenge_run/:path_id", { :controller => "challenge_runs", :action => "update" })
   
   # DELETE
   get("/delete_challenge_run/:path_id", { :controller => "challenge_runs", :action => "destroy" })
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # Routes for the Challenge type resource:
 
   # CREATE
-  post("/insert_challenge_type", { :controller => "challenge_types", :action => "create" })
+  #post("/insert_challenge_type", { :controller => "challenge_types", :action => "create" })
           
   # READ
   get("/challenge_types", { :controller => "challenge_types", :action => "index" })
@@ -30,10 +30,10 @@ Rails.application.routes.draw do
   
   # UPDATE
   
-  post("/modify_challenge_type/:path_id", { :controller => "challenge_types", :action => "update" })
+  #post("/modify_challenge_type/:path_id", { :controller => "challenge_types", :action => "update" })
   
   # DELETE
-  get("/delete_challenge_type/:path_id", { :controller => "challenge_types", :action => "destroy" })
+ # get("/delete_challenge_type/:path_id", { :controller => "challenge_types", :action => "destroy" })
 
   #------------------------------
 
@@ -77,8 +77,8 @@ Rails.application.routes.draw do
 
  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "home#show"
-  #root "users#index"
+  #root "home#show"
+  root "users#index"
   # Defines the root path route ("/")
   # root "articles#index"
 end
