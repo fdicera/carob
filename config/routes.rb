@@ -21,12 +21,12 @@ Rails.application.routes.draw do
   # Routes for the Challenge type resource:
 
   # CREATE
-  #post("/insert_challenge_type", { :controller => "challenge_types", :action => "create" })
+  post("/insert_challenge_type", { :controller => "challenge_types", :action => "create" })
           
   # READ
   get("/challenge_types", { :controller => "challenge_types", :action => "index" })
   
-  get("/challenge_types/:path_id", { :controller => "challenge_types", :action => "show" })
+  get("/challenge_types/:survey_id", { :controller => "challenge_types", :action => "show" })
   
   # UPDATE
   

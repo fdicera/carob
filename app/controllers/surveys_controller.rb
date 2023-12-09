@@ -48,17 +48,27 @@ class SurveysController < ApplicationController
     score = ((income - expenses)/ income) * risk_tolerance
   
     challenge_description = determine_challenge(score)
-  
-    ChallengeType.create({ :survey_id => the_survey.id, :description => challenge_description })
+    
+   # Create ChallengeType and log the result
+   challenge_type = ChallengeType.create({
+    :survey_id => the_survey.id,
+    :description => challenge_description
+  })
+
+  if challenge_type.persisted?
+    Rails.logger.info "ChallengeType created: #{challenge_type.inspect}"
+  else
+    Rails.logger.warn "Failed to create ChallengeType: #{challenge_type.errors.full_messages.join(', ')}"
   end
+end
   
   def determine_challenge(score)
     if score < 100
-      "Invest 10% in fixed income."
+      "Invest 10% of net income in fixed income."
     elsif score >= 100 && score < 200
-      "Invest 5% in equities, 5% in fixed income."
+      "Invest 5% of net income in equities, 5% in fixed income."
     else
-      "Invest 10% in equities, 5% in fixed income."
+      "Invest 10% of net income in equities."
     end
   end
 

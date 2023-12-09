@@ -8,59 +8,6 @@
 
 <hr>
 
-<div>
-  <div>
-    <h2>
-      Add a new challenge type
-    </h2>
-
-    <form action="/insert_challenge_type" method="post">
-      <div>
-        <label for="duration_box">
-          Duration
-        </label>
-
-        <input type="text" id="duration_box" name="query_duration">
-      </div>
-
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <div>
-        <label for="profile_id_box">
-          Profile
-        </label>
-
-        <input type="text" id="profile_id_box" name="query_profile_id">
-      </div>
-
-      <div>
-        <label for="description_box">
-          Description
-        </label>
-
-        <input type="text" id="description_box" name="query_description">
-      </div>
-
-      <div>
-        <label for="challenge_runs_count_box">
-          Challenge runs count
-        </label>
-
-        <input type="text" id="challenge_runs_count_box" name="query_challenge_runs_count">
-      </div>
-
-      <button>
-        Create challenge type
-      </button>
-    </form>
-  </div>
-</div>
 
 <hr>
 <div>
@@ -71,26 +18,12 @@
           ID
         </th>
 
-        <th>
-          Duration
-        </th>
-
-        <th>
-          Name
-        </th>
-
-        <th>
-          Profile
-        </th>
-
+        
         <th>
           Description
         </th>
 
-        <th>
-          Challenge runs count
-        </th>
-
+       
         <th>
           Created at
         </th>
@@ -105,30 +38,16 @@
 
       <% @list_of_challenge_types.each do |a_challenge_type| %>
       <tr>
+      
         <td>
-          <%= a_challenge_type.id %>
-        </td>
-
-        <td>
-          <%= a_challenge_type.duration %>
-        </td>
-
-        <td>
-          <%= a_challenge_type.name %>
-        </td>
-
-        <td>
-          <%= a_challenge_type.profile_id %>
+          <%= a_challenge_type.survey_id %>
         </td>
 
         <td>
           <%= a_challenge_type.description %>
         </td>
 
-        <td>
-          <%= a_challenge_type.challenge_runs_count %>
-        </td>
-
+        
         <td>
           <%= time_ago_in_words(a_challenge_type.created_at) %> ago
         </td>
