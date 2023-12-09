@@ -45,10 +45,10 @@ class SurveysController < ApplicationController
     expenses = the_survey.expenses.to_i
     risk_tolerance = the_survey.risk_tolerance.to_i
   
-    score = ((income - expenses)/ income) * risk_tolerance
+    score = ((income - expenses)/ income) * risk_tolerance*100
   
     challenge_description = determine_challenge(score)
-    
+
    # Create ChallengeType and log the result
    challenge_type = ChallengeType.create({
     :survey_id => the_survey.id,

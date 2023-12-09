@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   #post("/modify_challenge_type/:path_id", { :controller => "challenge_types", :action => "update" })
   
   # DELETE
- # get("/delete_challenge_type/:path_id", { :controller => "challenge_types", :action => "destroy" })
+  get("/delete_challenge_type/:path_id", { :controller => "challenge_types", :action => "destroy" })
 
   #------------------------------
 
