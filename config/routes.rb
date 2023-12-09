@@ -5,16 +5,16 @@ Rails.application.routes.draw do
   #post("/insert_challenge_run", { :controller => "challenge_runs", :action => "create" })
           
   # READ
-  get("/challenge_runs", { :controller => "challenge_runs", :action => "index" })
+  #get("/challenge_runs", { :controller => "challenge_runs", :action => "index" })
   
-  get("/challenge_runs/:path_id", { :controller => "challenge_runs", :action => "show" })
+  #get("/challenge_runs/:path_id", { :controller => "challenge_runs", :action => "show" })
   
   # UPDATE
   
   #post("/modify_challenge_run/:path_id", { :controller => "challenge_runs", :action => "update" })
   
   # DELETE
-  get("/delete_challenge_run/:path_id", { :controller => "challenge_runs", :action => "destroy" })
+  #get("/delete_challenge_run/:path_id", { :controller => "challenge_runs", :action => "destroy" })
 
   #------------------------------
 
@@ -59,19 +59,19 @@ Rails.application.routes.draw do
   # Routes for the Profile resource:
 
   # CREATE
-  post("/insert_profile", { :controller => "profiles", :action => "create" })
+ # post("/insert_profile", { :controller => "profiles", :action => "create" })
           
   # READ
-  get("/profiles", { :controller => "profiles", :action => "index" })
+  #get("/profiles", { :controller => "profiles", :action => "index" })
   
-  get("/profiles/:path_id", { :controller => "profiles", :action => "show" })
+ # get("/profiles/:path_id", { :controller => "profiles", :action => "show" })
   
   # UPDATE
   
-  post("/modify_profile/:path_id", { :controller => "profiles", :action => "update" })
+  #post("/modify_profile/:path_id", { :controller => "profiles", :action => "update" })
   
   # DELETE
-  get("/delete_profile/:path_id", { :controller => "profiles", :action => "destroy" })
+  #get("/delete_profile/:path_id", { :controller => "profiles", :action => "destroy" })
 
   #------------------------------
 
