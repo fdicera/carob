@@ -46,7 +46,7 @@ class SurveysController < ApplicationController
     expenses = the_survey.expenses.to_i
     risk_tolerance = the_survey.risk_tolerance.to_i
   
-    score = ((income - expenses)/ income) * risk_tolerance * 10
+    score = ((income - expenses).to_f/ income) * risk_tolerance * 100
 
     challenge_description = determine_challenge(score)
 
@@ -64,9 +64,9 @@ class SurveysController < ApplicationController
 end
   
   def determine_challenge(score)
-    if score < 2
+    if score <= 100
       "Invest 10% of net income in fixed income."
-    elsif score >= 2 && score < 6
+    elsif score > 100 && score <= 200
       "Invest 5% of net income in equities, 5% in fixed income."
     else
       "Invest 10% of net income in equities."
